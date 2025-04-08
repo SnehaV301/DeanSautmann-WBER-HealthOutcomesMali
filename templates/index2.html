@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Healthcare Predicting System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+        .container {
+            text-align: center;
+            width: 90%;
+            margin-left: 60px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-right: 100px;
+        }
+        .form-container1 {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            margin-left: 80px;
+            border-radius: 10px;
+            background-color: #DFE0E2;
+        }
+        .form-container {
+            margin: 0 auto;
+            display: flex;
+            padding: 20px;
+            margin-left: 100px;
+            border-radius: 10px;
+            background: url("../static/b_image1.jpg") no-repeat center center;
+            background-size: cover;
+
+
+<!--            background: rgba(255, 255, 255, 0.5); /* Adjust transparency to your preference (0.5 for 50%) */-->
+<!--            backdrop-filter: blur(10px); /* Increase blur intensity */-->
+<!--            -webkit-backdrop-filter: blur(10px); /* Safari fix */-->
+        }
+        .column {
+            width: 50%;
+        }
+        label {
+            width: 90%;
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+<!--            font-weight: bold;-->
+        }
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 92%;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-left: 80px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Free Healthcare Predicting System</h2>
+        <div class="form-container1">
+            <form id="predictionForm" action="/predict" method="POST">
+                <div class="form-container">
+                    <div class="column">
+
+                        <label for="TrtOrder">Treatment Order:</label>
+                        <select id="TrtOrder" name="TrtOrder" required>
+                            <option value="1">Control Group</option>
+                            <option value="2">Health Worker Visits</option>
+                            <option value="3">Free Healthcare</option>
+                            <option value="4">Health Worker & Free Care</option>
+                        </select>
+
+<!--                        <label for="dist1">Distance (km, 1 - 7):</label>-->
+<!--                        <input type="number" id="dist1" name="dist1" min="1" max="7" step="0.01" value="6.5" required>-->
+
+                        <label for="LitFA">Household Head Literacy:</label>
+                        <select id="LitFA" name="LitFA" required>
+                            <option value="0">Illiterate</option>
+                            <option value="1">Literate</option>
+                        </select>
+
+                        <label for="vaccine_card_available">Vaccine Card Available:</label>
+                        <select id="vaccine_card_available" name="vaccine_card_available" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                        <label for="health_program_">Health Program Enrolled:</label>
+                        <select id="health_program_" name="health_program_" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                        <label for="health_worker_provides_">Health workers support</label>
+                        <select id="health_worker_provides_" name="health_worker_provides_" required>
+                            <option value="1">Minimal Support</option>
+                            <option value="2">Some Support</option>
+                            <option value="3">Regular Support</option>
+                            <option value="4">Comprehensive  Support</option>
+                        </select>
+
+                    </div>
+
+                    <div class="column">
+                        <label for="ORT_recipe">Does the caregiver know the correct ORT recipe?:</label>
+                        <select id="ORT_recipe" name="ORT_recipe" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                        <label for="Months_breastfeeding_correct">Is the breastfeeding duration correct?:</label>
+                        <select id="Months_breastfeeding_correct" name="Months_breastfeeding_correct" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                        <label for="tag_HH">Household Tag:</label>
+                        <select id="tag_HH" name="tag_HH" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                        <label for="tag_C">Child Tag:</label>
+                        <select id="tag_C" name="tag_C" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                        <label for="tag_M">Mother Tag:</label>
+                        <select id="tag_M" name="tag_M" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit">Predict</button>
+            </form>
+        </div>
+    </div>
+    <!-- Modal for popup -->
+    <div id="predictionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('predictionModal').style.display='none'">&times;</span>
+            <h3>Prediction Result</h3>
+            <p id="modalResult"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            console.log("Form submitted");
+            const formData = new FormData(this);
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                console.log("Response status:", response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                console.log("Response data:", result);
+                // Show prediction in modal popup
+                const modal = document.getElementById('predictionModal');
+                const modalResult = document.getElementById('modalResult');
+                modalResult.innerText = `Free Care Check: ${result.prediction === 1 ? 'Yes' : 'No'} (Probability: ${result.probability.toFixed(2)})`;
+                modal.style.display = 'block';
+            } catch (error) {
+                console.error("Error:", error);
+                const modal = document.getElementById('predictionModal');
+                const modalResult = document.getElementById('modalResult');
+                modalResult.innerText = `Error: ${error.message}`;
+                modal.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

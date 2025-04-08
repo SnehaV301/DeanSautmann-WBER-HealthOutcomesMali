@@ -1,0 +1,124 @@
+
+Final Features
+
+        TrtOrder: Numeric (1.0, 2.0, 3.0, 4.0) → Likely an ordinal or categorical variable (treatment order).
+        dist1: Numeric (6.22–6.52) → Continuous distance in km, with decimals.
+        vaccine_card_available: Binary (0, 1) → Yes/No.
+        health_program_: Numeric (0.0, 1.0) → Binary (enrolled or not), though stored as float.
+        health_worker_provides_: Numeric (3.0, 4.0) → Likely categorical (not binary), possibly a typo or scale (needs clarification).
+        ORT_recipe: Binary (0, 1) → Yes/No.
+        Months_breastfeeding_correct: Binary (0, 1) → Yes/No.
+        tag_HH: Binary (0, 1) → Yes/No.
+        tag_C: Binary (0, 1) → Yes/No.
+        tag_M: Binary (0, 1) → Yes/No.
+        Notes:
+        ---------------------------------------------------------------
+
+
+FPrimary: Household identifier from the 2013 survey.
+
+Person_ID: Unique identifier for each person.
+
+Compound: Identifier for the residential compound in 2013.
+
+Mother_ID: Unique identifier for the mother of the child.
+
+Surveyor_ID: Identifier for the surveyor who collected the data.
+
+Survey_Date: Date when the survey was conducted.
+
+Consent and Participation:
+
+Consent: Whether the mother gave consent for participation.
+
+Child_Consent_: Whether the child gave consent.
+
+TrtOrder: Treatment assignment in 2014.
+
+TrtOrder2013: Treatment assignment in 2013.
+
+Treatment Groups:
+
+Treatment1: Whether the household was in the control group.
+
+Treatment2: Whether the household received community health worker visits.
+
+Treatment3: Whether the household received free healthcare.
+
+Treatment4: Whether the household received both health worker visits and free care.
+
+Household and Demographics:
+
+HHmembers_12: Household size.
+
+GenderFA: Gender of the household head.
+
+LitFA: Whether the household head is literate.
+
+LangFA: Whether the household head speaks Bambara.
+
+SalaryFA: Whether the household head has a salary.
+
+OOccupier: Whether the household owns their home.
+
+LogAssets: Total household assets (log-transformed).
+
+Child Health Indicators:
+
+Age_2014: Child’s age in days.
+
+Gender: Child’s gender.
+
+Vaccine_Card_Available: Whether the child's vaccine card was available.
+
+Vaccines_Taken: Number of vaccines received based on the vaccine card.
+
+MUAC_Unadjusted: Mid-upper arm circumference (MUAC), a measure of malnutrition.
+
+Child_Weight_1_: First recorded weight of the child.
+
+Mother_Weight_1_: First recorded weight of the mother.
+
+Health and Illness:
+
+Diarrhea_2013: Fraction of days the child had diarrhea in 2013.
+
+Ill_Last_Week_: Whether the child was sick in the last week.
+
+Diarrhea_Last_Week_: Whether the child had diarrhea in the last week.
+
+ORT_Day_1_ to ORT_Day_7_: Whether the child received oral rehydration therapy each day of the past week.
+
+Healthcare Utilization:
+
+CSCOM_Last_Week: Whether the child visited a community health center.
+
+Hospital_Last_Week: Whether the child visited a hospital.
+
+Private_Clinic_Last_Week: Whether the child visited a private clinic.
+
+Traditional_Last_Week: Whether the child used traditional treatments.
+
+Pharmacy_Last_Week: Whether the child visited a pharmacy.
+
+Water and Sanitation:
+
+Current_Water_Source: The household’s current source of drinking water.
+
+Changed_Water_Source: Whether the drinking water source changed since the last survey.
+
+Aquatabs_Used: Whether water purification tablets were used in the last week.
+
+Measured_Chlorine: The level of chlorine in drinking water.
+
+Other Factors:
+
+Mosquito_Net_Used_: Whether the child used a mosquito net.
+
+Months_Breastfeeding: Number of months the child was breastfed.
+
+ORT_Recipe: Whether the caregiver knows the correct oral rehydration therapy recipe.
+
+This dataset is structured to analyze the effects of community health worker visits and free healthcare on child health outcomes in Mali. Let me know if you need more details on specific variables!
+
+#===========================================================================
